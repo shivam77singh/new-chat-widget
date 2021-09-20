@@ -52,7 +52,7 @@ function CarouselMessage({
           <div className="sc-message--carouselitem" style={myStyle} key={index}>
             <img className="d-block" src={item.image_url} alt="First slide" />
             <div className="sc-message--carouselinfo">
-              <p>{item.title}</p> <p>{item.subtitle}</p>
+              <h5>{item.title}</h5> <p>{item.subtitle}</p>
               <button>Buy Now</button> <button>Know more</button>
             </div>
           </div>

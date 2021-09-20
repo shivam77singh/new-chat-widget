@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function QuickReplyMessage({ message, handleInputMessage }) {
+function QuickReplyMessage({
+  message,
+  handleInputMessage,
+  index,
+  totalMessages,
+}) {
   const [showQuickReply, setShowquickReply] = useState(true);
   const text = message[1].message.text;
   const options = [...message[1].message.quickReply];
 
+  useEffect(() => {
+    // console.log(index, totalMessages, "inside quickrepy");
+    // if (index === totalMessages - 1) setShowquickReply(true);
+    // else setShowquickReply(false);
+  }, []);
+
   const handleSubmit = (value) => {
-    let obj = { quickReply: value, payload: "" };
+    let obj = { text: value, payload: "" };
     obj = JSON.stringify(obj);
     handleInputMessage({
       message: value,

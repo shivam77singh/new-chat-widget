@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FormValidator } from "../../FormValidation";
-import { AiOutlineRight } from "react-icons/ai";
+import { HiBan } from "react-icons/hi";
+import { TiTick } from "react-icons/ti";
 import { InputTypeIcon } from "../../icons/InputTypeIcon";
 import DropDownInput from "./inputFields/DropDownInput";
 import AllOtherInput from "./inputFields/AllOtherInput";
 import TextAreaInput from "./inputFields/TextAreaInput";
 import FileInput from "./inputFields/FileInput";
+import DropDown from "./inputFields/DropDown";
+import DateInput from "./inputFields/DateInput";
 import { set } from "ramda";
 
 function FormInput({ message, handleInputMessage }) {
@@ -14,12 +17,15 @@ function FormInput({ message, handleInputMessage }) {
   const [inputValue, setInputValue] = useState({});
   const [formFields, setFormFields] = useState([]);
   const [errorStyle, setErrorStyle] = useState({ display: "none" });
+  const [showTick, setShowTick] = useState(false);
   const inputType = message[1].message.input;
   const messageHead = message[1].message.text;
-  const singleInputStyle = { width: "350px" };
+  const singleInputStyle = {};
+  const isFormRequired = message[1].message.required;
 
   // <<<<<<<<<=====================INITIALIZING THE FORM FIELDS==========>>>>>>
   useEffect(() => {
+    setShowTick(!isFormRequired);
     if (inputType === "form") {
       const messageBody = message[1].message.init;
       const formField = messageBody.formConfig.sections[0].fields;
@@ -41,11 +47,41 @@ function FormInput({ message, handleInputMessage }) {
       ]);
     }
   }, []);
+  useEffect(() => {
+    let obj = {};
+    formFields.forEach((field) => {
+      field.forEach((subfield) => {
+        const key = subfield.field;
+        obj[key] = undefined;
+      });
+    });
+    setInputValue(obj);
+  }, [formFields]);
+
+  //set the submit icon according to the form validaton
+  const handleDisplayButtonIcon = (err) => {
+    if (isFormRequired) {
+      let isOk = true;
+      formFields.forEach((field) => {
+        field.forEach((subfiled) => {
+          const f = subfiled.field;
+          if (
+            subfiled.required == true &&
+            (err[f] || inputValue[f] == "" || inputValue[f] == undefined)
+          )
+            isOk = false;
+        });
+      });
+      setShowTick(isOk);
+    }
+  };
 
   // <<<<<<<<<<=============HANDLES THE ERROR WHEN INPUTVALUE CHANGES============>>>>>>>>>>
 
   const handleError = (submit) => {
     const err = FormValidator(formFields, inputValue);
+
+    handleDisplayButtonIcon(err);
     setError({ ...err });
 
     for (const p in err) {
@@ -77,21 +113,22 @@ function FormInput({ message, handleInputMessage }) {
       setErrorStyle({ display: "block" });
       return true;
     }
+
     return false;
   };
 
   useEffect(() => {
     handleError(false);
-    console.log(inputValue, "input");
   }, [inputValue]);
 
   // <<<<<<<<<<==========HANDLES SUBMIT FORM AND CHECKS ERRORS============>>>>>>>>>>
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const buttonType = e.target.innerText;
+
+    const btnType = e.target.name;
     const isError = handleError(true);
-    if (isError == true) {
+    if (isError == true && btnType == "submit") {
       return;
     }
     var formData = new FormData();
@@ -103,7 +140,9 @@ function FormInput({ message, handleInputMessage }) {
     });
 
     const message =
-      inputType === "form" ? "Submit" : `${inputValue[inputType]}`;
+      inputType === "form"
+        ? `${e.target.innerText}`
+        : `${inputValue[inputType]}`;
     handleInputMessage({
       message,
       value: formData,
@@ -122,6 +161,18 @@ function FormInput({ message, handleInputMessage }) {
     const { [field.field]: err } = error;
 
     switch (type) {
+      case "date":
+        return (
+          <DateInput
+            field={field}
+            error={err}
+            handleUserInput={handleUserInput}
+            errorStyle={errorStyle}
+            inputType={inputType}
+            handleSubmit={handleSubmit}
+          />
+        );
+        break;
       case "large-text":
         return (
           <TextAreaInput
@@ -134,7 +185,7 @@ function FormInput({ message, handleInputMessage }) {
       case "dropdown":
         const options = field.config.options;
         return (
-          <DropDownInput
+          <DropDown
             field={field}
             error={err}
             handleUserInput={handleUserInput}
@@ -190,14 +241,23 @@ function FormInput({ message, handleInputMessage }) {
 
         {inputType === "form" && (
           <div className="sc-message--form-btn">
-            {Object.keys(buttons).map((btn) => {
+            {Object.keys(buttons).map((btn, index) => {
               return (
-                <button
-                  onClick={(e) => handleSubmit(e)}
-                  type={buttons[btn].label}
-                >
-                  {buttons[btn].label}
-                </button>
+                <>
+                  <button
+                    onClick={(e) => handleSubmit(e)}
+                    type={buttons[btn].label.toLowerCase()}
+                    name={buttons[btn].label.toLowerCase()}
+                  >
+                    {buttons[btn].label}
+                  </button>
+                  {buttons[btn].label == "Submit" &&
+                    (!showTick ? (
+                      <HiBan className="sc-message--btn-icon" />
+                    ) : (
+                      <TiTick className="sc-message--btn-icon" />
+                    ))}
+                </>
               );
             })}
           </div>
@@ -208,12 +268,13 @@ function FormInput({ message, handleInputMessage }) {
 
   return (
     <div
-      className="sc-message--form-container"
+      className={showForm ? "sc-message--form-container" : "sc-message--text"}
       style={inputType == "form" ? {} : singleInputStyle}
     >
-      {inputType == "form" && <h4>{messageHead}</h4>}
+      {showForm && inputType == "form" && <h4>{messageHead}</h4>}
 
       {showForm && displayForm()}
+      {!showForm && messageHead}
     </div>
   );
 }

@@ -20,7 +20,7 @@
 }
 .sc-user-input--menu {
   font-size: 22px;
-  color: #150e5b;
+  color: var(--primary-color);
   cursor: pointer;
   /* border: 2px solid black; */
 }

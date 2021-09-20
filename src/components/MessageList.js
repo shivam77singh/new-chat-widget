@@ -5,6 +5,8 @@ import Message from "./Messages";
 function MessageList({ messages, handleInputMessage }) {
   const element = useRef(null);
   const elementCurrent = prop("current", element);
+  console.log(messages, messages.length, "pppppppppppppp");
+  const totalMessages = messages.length;
 
   useEffect(() => {
     if (elementCurrent) {
@@ -19,6 +21,8 @@ function MessageList({ messages, handleInputMessage }) {
           message={message}
           key={index}
           handleInputMessage={handleInputMessage}
+          index={index}
+          totalMessages={totalMessages}
         />
       ))}
     </div>

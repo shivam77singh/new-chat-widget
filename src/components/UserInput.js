@@ -60,7 +60,7 @@ class UserInput extends Component {
   _submitText(event) {
     event.preventDefault();
     const text = this.userInput.textContent;
-    let obj = { text, payload: "" };
+    let obj = { text };
     obj = JSON.stringify(obj);
 
     makePostRequest(obj);

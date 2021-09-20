@@ -20,10 +20,17 @@ const validate = (item) => {
       }
       break;
     case "phone":
-      let phone = /^[0-9]*$/;
-      if (value && !(value.match(phone) && value.length <= 12)) {
-        err = "Please enter a valid phone number";
-      }
+      const formatPhoneNumberOutput = (
+        isValid,
+        newNumber,
+        countryData,
+        fullNumber,
+        isExtension
+      ) => {
+        if (!isValid && fullNumber !== "")
+          err = "Please enter a valid phone number";
+      };
+      formatPhoneNumberOutput(...value);
       break;
     case "age":
       let age = /^[0-9]*$/;

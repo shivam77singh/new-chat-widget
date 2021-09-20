@@ -171,7 +171,7 @@ export default [
           image_aspect_ratio: "horizontal",
         },
         {
-          title: "Crysto Glass Bottle (Wide Mouth)",
+          title: "Crysto Glass Bottle",
           image_url:
             "https://dwh39hsbrwe7m.cloudfront.net/media/catalog/product/cache/83d1798589160ed719728cafde2f5745/h/u/husk_bottle_mint_water_green_1_3.jpg",
           subtitle: "Price starting ₹425\n",
@@ -224,7 +224,7 @@ export default [
       event: "webchat",
     },
   ],
-  //<<<<<<<<============================================input name================================>>>>>>>>>>>>>>>>>>>
+  // <<<<<<<<============================================input name================================>>>>>>>>>>>>>>>>>>>
   [
     "borosil__7cc83e68-9372-4bcc-b5b6-521b6e70a5f3.webchat",
     {
@@ -395,6 +395,27 @@ export default [
     },
   ],
   [
+    "borosil__e94f3ef5-f007-4b8a-9891-1d7c5aa7ec45.webchat",
+    {
+      channel: "webapp",
+      direction: "local",
+      timeOfMessage: 1630776628309,
+      message: {
+        text: "Sure. If you have bought Sure. If you have bought Sure. If you have bought Sure. If you have bought Sure. If you have bought ",
+      },
+      sender: {
+        name: "T@gmailcom ",
+        gender: "unknown",
+      },
+      metadata: {
+        recipientID: "borosil",
+        senderID: "e94f3ef5-f007-4b8a-9891-1d7c5aa7ec45",
+        source: "webapp",
+      },
+      event: "webchat",
+    },
+  ],
+  [
     "borosil__d41dea29-bb66-4fe7-9153-976d3f11d1f7.webchat",
     {
       channel: "webapp",
@@ -427,56 +448,9 @@ export default [
       event: "webchat",
     },
   ],
-  // [
-  //   "borosil__7cc83e68-9372-4bcc-b5b6-521b6e70a5f3.webchat",
-  //   {
-  //     channel: "webapp",
-  //     direction: "local",
-  //     timeOfMessage: 1630771712545,
-  //     message: {
-  //       text: "Please provide us with the following information to help us understand the problem you are facing.",
 
-  //       input: "form",
-  //      inputFields: [
-  //         {
-  //           type: "text",
-  //           label: "Product Name",
-  //         },
-  //         {
-  //           type: "file",
-  //           label: "Product Image",
-  //         },
-  //         {
-  //           type: "textarea",
-  //           label: "Deatils of Problem",
-  //         },
-  //       ],
-  //       button: [
-  //         {
-  //           text: "Submit",
-  //         },
-  //         {
-  //           text: "Skip",
-  //         },
-  //       ],
-  //       required: true,
-  //     },
-  //     sender: {
-  //       name: "Fdsfsf ",
-  //       gender: "unknown",
-  //     },
-  //     metadata: {
-  //       source: "webapp",
-  //       recipientID: "borosil",
-  //       senderID: "7cc83e68-9372-4bcc-b5b6-521b6e70a5f3",
-  //       timeOfMessage: 1630771712490,
-  //     },
-  //     event: "webchat",
-  //   },
-  // ],
-
-  //<<<<<<<<=================User Input===========================>>>>>>>>>>>>>>>>>>>>>>>.
-  //<<<<<<<<=================Form Input===========================>>>>>>>>>>>>>>>>>>>>>>>.
+  // <<<<<<<<=================User Input===========================>>>>>>>>>>>>>>>>>>>>>>>.
+  // <<<<<<<<=================Form Input===========================>>>>>>>>>>>>>>>>>>>>>>>.
 
   [
     "2A59E9B99B6F5_test__7a67aeed-7919-47b6-b372-ac1a878642f5.webchat",
@@ -714,6 +688,51 @@ export default [
       },
     },
   ],
+
+  [
+    "borosil__de3703fc-68e5-42fa-9f8a-8726ed6879e2.webchat",
+    {
+      channel: "webapp",
+      direction: "local",
+      timeOfMessage: 1631775804905,
+      message: {
+        text: "Choose from the categories below or type a product name to search",
+        quickReply: [
+          {
+            title: "Product Enquiry 🛍️",
+            payload:
+              "U2FsdGVkX19k2PDXof25dshEUpVp1hHs38+RAc5FmdwS5BS4c8uboIu4Af2BWySWiZOQmzLr3SNKW5ofikOISyI2uRg6aGE7WERfWnrhuVle5NrRbdxS0WP3+WxYJScu338oPl8N183lRBHjFcbL3Q==",
+          },
+          {
+            title: "Request After Sales Service ⚙️",
+            payload:
+              "U2FsdGVkX1+X2c8xPrZ0eofaw2ffSyvSqkJcbab0KYGNhN5ZWVLoXIj/MyvShAUu6L9wVXeijjxeV3v2aULAtRG7Gn9Bmn8rNQpFpDYg/ez6uAmBp7X6qoQeuvi9tS9Kp/ZdvFtaVlObuMwAw1fruA==",
+          },
+          {
+            title: "Product Registration 📝",
+            payload:
+              "U2FsdGVkX19nfqaMTb0MsH6OXmgzFSkP8kz5Z+YRrzCwTPGfF3c8zxZbQZ/h3KfaF10ibnrd3FRRvBt0KCJ7w1LwqTyo2cLZvGL+c7xKOl6LB55Z8fuqE0RzC3MBzn68hxIrH4vdeBfAYAndBxiJpep2ppAwPsAh21pJEou400M=",
+          },
+          {
+            title: "Help ℹ️",
+            payload:
+              "U2FsdGVkX19wrepal11HaauPSaMbpnm+4owGiSdUzsTsJTBX9bwlpPpSgEn+PgoFs0r3Jf8TcPY17+QfLn+of8zwTvxkwsVZ7n7YW+lJto1WZ7jRNT2irO64GGx3fw2gAnBidIHHX3NOEQHPROOw/g==",
+          },
+        ],
+      },
+      sender: {
+        name: "Fsdfs ",
+        gender: "unknown",
+      },
+      metadata: {
+        source: "webapp",
+        recipientID: "borosil",
+        senderID: "de3703fc-68e5-42fa-9f8a-8726ed6879e2",
+        timeOfMessage: 1631775804194,
+      },
+      event: "webchat",
+    },
+  ],
 ];
 
 // [
@@ -819,6 +838,51 @@ export default [
 //       recipientID: "borosil",
 //       senderID: "e4c4a564-b472-4b43-aa09-c847f4a82d9d",
 //       timeOfMessage: 1631372009263,
+//     },
+//     event: "webchat",
+//   },
+// ];
+
+// [
+//   "borosil__de3703fc-68e5-42fa-9f8a-8726ed6879e2.webchat",
+//   {
+//     channel: "webapp",
+//     direction: "local",
+//     timeOfMessage: 1631775804905,
+//     message: {
+//       text: "Hi! How can I help you?",
+//       quickReply: [
+//         {
+//           title: "Product Enquiry 🛍️",
+//           payload:
+//             "U2FsdGVkX19k2PDXof25dshEUpVp1hHs38+RAc5FmdwS5BS4c8uboIu4Af2BWySWiZOQmzLr3SNKW5ofikOISyI2uRg6aGE7WERfWnrhuVle5NrRbdxS0WP3+WxYJScu338oPl8N183lRBHjFcbL3Q==",
+//         },
+//         {
+//           title: "Request After Sales Service ⚙️",
+//           payload:
+//             "U2FsdGVkX1+X2c8xPrZ0eofaw2ffSyvSqkJcbab0KYGNhN5ZWVLoXIj/MyvShAUu6L9wVXeijjxeV3v2aULAtRG7Gn9Bmn8rNQpFpDYg/ez6uAmBp7X6qoQeuvi9tS9Kp/ZdvFtaVlObuMwAw1fruA==",
+//         },
+//         {
+//           title: "Product Registration 📝",
+//           payload:
+//             "U2FsdGVkX19nfqaMTb0MsH6OXmgzFSkP8kz5Z+YRrzCwTPGfF3c8zxZbQZ/h3KfaF10ibnrd3FRRvBt0KCJ7w1LwqTyo2cLZvGL+c7xKOl6LB55Z8fuqE0RzC3MBzn68hxIrH4vdeBfAYAndBxiJpep2ppAwPsAh21pJEou400M=",
+//         },
+//         {
+//           title: "Help ℹ️",
+//           payload:
+//             "U2FsdGVkX19wrepal11HaauPSaMbpnm+4owGiSdUzsTsJTBX9bwlpPpSgEn+PgoFs0r3Jf8TcPY17+QfLn+of8zwTvxkwsVZ7n7YW+lJto1WZ7jRNT2irO64GGx3fw2gAnBidIHHX3NOEQHPROOw/g==",
+//         },
+//       ],
+//     },
+//     sender: {
+//       name: "Fsdfs ",
+//       gender: "unknown",
+//     },
+//     metadata: {
+//       source: "webapp",
+//       recipientID: "borosil",
+//       senderID: "de3703fc-68e5-42fa-9f8a-8726ed6879e2",
+//       timeOfMessage: 1631775804194,
 //     },
 //     event: "webchat",
 //   },
